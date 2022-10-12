@@ -29,7 +29,7 @@ function fetchHoennPokemon() {
                 let url = item.pokemon_species.url;
                 url = url.replace('-species', '');
                 fetchPokemonData(url);
-            });
+            });     
         });
 
 }
@@ -104,7 +104,7 @@ function createTypes(types, wrapper) {
         div.innerHTML = type['type']['name'];
         div.id = type['type']['name'];
         let colour = colourSwitch(type['type']['name']);
-        div.setAttribute("class", 'col-6')
+        div.setAttribute("class", 'col-6', 'col-sm-12', 'col-lg-3')
         div.style = `text-align:center; background:#${colour};`
         wrapper.append(div);
     })
@@ -224,7 +224,7 @@ function renderResults(results) {
         return searchWrapper.classList.remove('show');
     }
 
-    results = results.slice(0, 5); //limit results to 5
+    results = results.slice(0, 10); //limit results to 5
 
     const content = results
         .map((item) => {
@@ -280,7 +280,7 @@ function typeCounterSwitch(type) {
         case "fairy":
             return 'poison';
         default:
-            return 'A8A77A';
+            return 'normal';
     }
 }
 
